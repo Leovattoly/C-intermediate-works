@@ -1,0 +1,154 @@
+1.Write a program to accept an angle x in degrees and find the value of sin x, cos x and tan x.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+ 
+void main()
+{
+    int n, x1;
+    float  x, sinval, cosval,tanval;
+ 
+    printf("Enter the value of x (in degrees) \n");
+    scanf("%f", &x);
+    x1 = x;
+    /*  Converting degrees to radians */
+    x = x * (3.142 / 180.0);
+    sinval = sin(x);
+    cosval = cos(x);
+    tanval = tan(x);
+    printf("Sin(%d) = %f \n", x1,sinval);
+    printf("cos(%d) = %f \n", x1,cosval);
+    printf("tan(%d) = %f \n", x1,tanval);
+
+
+    
+}
+
+****************************************************************
+
+2. Write a program that prompts the user for the Cartesian coordinates of two points (x1 , y1) and (x2 , y2), then display the distance between them. 
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+ 
+void main()
+{
+    float  x1,x2,y1,y2;
+    float distance =0;
+ 
+    printf("Enter the value of x and y (Cartesian coordinates f two points) \n");
+    scanf("%f%f%f%f", &x1,&y1,&x2,&y2);
+    distance = sqrt((pow(x1-x2,2))+pow(y1-y2,2));
+    
+    printf("Distance between 2 points = %f \n", distance);
+
+
+    
+}
+
+**************************************************
+
+3.The toupper( ) function from the <ctype.h> library will convert a lowercase letter to uppercase. Write a program that accepts a character as input, then display it in uppercase
+
+#include <stdio.h>
+#include <math.h>
+#include<ctype.h> 
+#include <stdlib.h>
+ 
+void main()
+{
+    char input,output;
+ 
+    printf("Enter a character: \n");
+    scanf("%c", &input);
+    output = toupper(input);
+    printf("Upper case of %c \n %c ", input,output);
+
+
+    
+}
+
+************************************************************
+
+Write your own function (user-defined function) void myName( ) that displays your name, and another function void myAddress ( ) that displays your address. Write a program that, by calling these functions, will display your name card.
+
+
+#include <stdio.h>
+#include <math.h>
+#include<ctype.h> 
+#include <stdlib.h>
+
+
+
+void myName()
+{
+    printf("Name: Akhil Vinayak\n");
+}
+
+void myAddress ()
+{
+    printf("House Name: Ganapathi House\n");
+    printf("House No: 85694-HH-k\n");
+    printf("Pin: 680311");
+    
+}
+ 
+void main()
+{
+    myName();
+    myAddress();
+
+    
+}
+
+*****************************************************
+
+Write a function int menu( ) that displays three choices of fast food and allows the user to key in his choice as a number. (You may use examples from KFC, McDonalds, Pizza Hut etc.)
+
+Return this choice to the calling function. Write the main program to call this function to get
+
+the user's choice and display it (as the number input) on the screen.
+
+#include <stdio.h>
+#include <math.h>
+#include<ctype.h> 
+#include <stdlib.h>
+
+
+int menu()
+{
+    int choice, num; 
+    printf("Press 1 for KFC\n"); 
+    printf("Press 2 for McDonalds\n"); 
+    printf("Press 3 for Pizza Hut \n"); 
+    printf("Enter your choice:\n"); 
+    scanf("%d", &choice);  
+      
+    switch (choice) { 
+    case 1: { 
+        return 1;
+        break; 
+    } 
+    case 2: { 
+        return 2;
+    } 
+    case 3: { 
+        return 3;
+    } 
+    default: 
+    
+        return(menu());
+    } 
+ 
+}
+
+void main()
+{
+    int c=0;
+    c =menu();
+    printf("your choice is %d",c);
+
+    
+}

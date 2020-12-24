@@ -1,0 +1,76 @@
+
+#include <stdio.h>
+
+#define PLAYER 10 // constant value for array columns (players)
+#define MATCH 6   // Constant value for array row (Matches)
+int main()
+{
+    int num[PLAYER][MATCH] = {{105,25,96,102,86,98},{58,96,100,48,85,65},{89,150,25,69,89,90},
+        {105,25,96,102,86,98},{58,96,100,48,85,65},{89,150,25,69,89,90},
+        {105,25,96,102,86,98},{58,96,100,48,85,65},{89,150,25,69,89,90},{105,89,65,98,78,6}
+    };
+    // following statemnts are printing the Match and players runs table
+    
+    printf("\t\tMatch 1 Match 2  Match 3 Match 4 Match 5 Match 6\n");
+    for(int i =0;i<PLAYER;++i)
+    {
+        printf("Player %d \t",i+1);
+        for(int j = 0 ;j<MATCH;++j)
+        {
+            printf("%d \t",num[i][j]);
+        }
+        printf("\n");
+    }
+    
+    // Write down a program to find out number of Century scored by each player in those six matches. 
+    
+    int Century[PLAYER];
+    
+    for(int i = 0 ;i<PLAYER;++i) // initializing as zero
+    {
+        Century[i] = 0;
+    }
+    for(int i = 0;i<PLAYER;++i)
+    {
+       for(int j = 0 ;j<MATCH;++j)
+        {
+            if(num[i][j]>=100) // Checking each player score Century or not
+            {
+               Century[i] =  Century[i]+1;
+            }
+        } 
+    }
+    
+    //Showing Centuries of each player as report
+    
+    printf("\nCentury Scored by each player in 6 Matches \n");
+    for (int i = 0 ; i< PLAYER;++i)
+    {
+        printf("player %d scored %d Centuries\n",i+1,Century[i]);
+    }
+    
+    
+    //  b. Also print the total runs scored by the team in each match.
+    
+    int total_runs[MATCH];
+    
+    for(int i = 0 ;i<MATCH;++i) // initializing as zero
+    {
+        total_runs[i] = 0;
+    }
+    for(int j = 0 ;j<MATCH;++j)
+    {
+      for(int i = 0;i<PLAYER;++i) 
+        {
+            total_runs[j] = total_runs[j]+num[i][j];
+        } 
+    }
+    
+    printf("\nTotal runs scored by the team in each match\n");
+    for(int i = 0 ;i<MATCH;++i) // initializing as zero
+    {
+        printf("Match %d Total runs %d \n",i+1,total_runs[i]);    
+        
+    }
+    return 0;
+}

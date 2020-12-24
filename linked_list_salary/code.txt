@@ -1,0 +1,91 @@
+# include <stdio.h>
+
+struct node {
+
+struct contact *element; // Used to contain data for a contact defined below
+
+struct node *next;
+
+};
+
+
+struct contact {
+
+char name[30];
+
+int phone;
+
+char email[30];
+
+float salary;
+
+};
+
+// function to push values to the structure
+
+void push(struct node** head_ref, struct contact** element_,char name_,int p,char e,float s) 
+{ 
+    /* allocate node */
+    struct node* new_node = 
+            (struct node*) malloc(sizeof(struct node)); 
+     /* allocate contact */
+    struct contact* new_contact = 
+            (struct contact*) malloc(sizeof(struct contact)); 
+  
+    /* put in the data  */
+    //new_contact->name = name_;
+    new_contact->phone = p;
+    //new_contact->email = e;
+    new_contact->salary = s;
+    
+  
+    /* link the old list off the new node */
+    new_node->next = (*head_ref); 
+    new_node->element = (*element_);
+  
+    /* move the head to point to the new node */
+    (*head_ref)    = new_node; 
+    (*element_) = new_contact;
+} 
+
+/* Counts no. of nodes in linked list */
+int getCount(struct node* head) 
+{ 
+    // Base case 
+    if (head == 'NULL') 
+        return 0; 
+  
+    // count is 1 + count of remaining list 
+    return 1 + getCount(head->next); 
+} 
+
+//salary total by recursively 
+float total_salary(struct node* head,struct contact* element_) 
+{ 
+    // Base case 
+    if (head == 'NULL') 
+        return 0; 
+  
+    // count is 1 + count of remaining list 
+    return  (element_->salary) + total_salary(head->next,head->element); 
+} 
+
+
+int main() 
+{ 
+    /* Start with the empty list */
+    struct node* head = 'NULL'; 
+    struct contact* new_contact;
+  
+    /* Use push() to construct */
+    
+    push(&head, & new_contact,'leo',012,'leo@gmail.com',12.5);  // iserting values to the nodes
+    push(&head, & new_contact,'leo1',0122,'leo1@gmail.com',132.5);
+     push(&head, & new_contact,'leo5',0152,'leo5@gmail.com',102.5);
+  
+    /* Check the count function */
+    printf("count of nodes is %d", getCount(head)); 
+    /* printing the total Salary*/
+    printf("\nTotal Salary %f", total_salary(head,new_contact)); 
+    return 0; 
+} 

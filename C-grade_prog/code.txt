@@ -1,0 +1,63 @@
+Question b:
+
+*************************
+#include <stdio.h>
+int main(void){
+int num;
+printf("Enter an integer: ");
+scanf("%d",&num);
+
+
+	if(num != 9){
+	printf(" Value not 9\n"); // printing outputs
+		}
+	else
+	{
+	    printf(" Value is 9\n"); // printing outputs
+	}
+	printf("This is C \nProgram");
+return 0;
+}
+*************************
+
+Q(b)
+
+#include <stdio.h>
+int main(void){
+int mark[5];
+int i;
+int total = 0;
+float avg =0;
+printf("Enter your mark ");
+for(i = 0;i<4;++i)
+{
+    scanf("%d",&mark[i]);
+}
+for(i = 0;i<4;++i)
+{
+    
+    total += mark[i];
+}
+avg = total/4;
+
+printf(" Total Score: %d\n", total);
+printf(" Average Score: %f\n", avg);
+
+	if(avg >= 70){
+	printf(" You got A grade"); // printing outputs
+		}
+	else if ( avg >=60 && avg <=69){ // Note the space between else & if
+		printf(" You got B grade");
+		}
+	else if (  avg >=50 && avg <=59){
+		printf(" You got C grade");
+		}
+	else if (  avg >=40 && avg <=49){
+		printf(" You got D grade");
+		}
+	else if (  avg >=0 && avg <=39){
+		printf(" You got F grade");
+		}
+return 0;
+}
+

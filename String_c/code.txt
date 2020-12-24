@@ -1,0 +1,228 @@
+/** Task 1: Reverse a character string.
+
+
+  Write C function called str_rev() that takes a pointer to a string
+
+  as input and reverses the string in-place (this change should be
+
+  reflected in the original string that was passed to the function,
+
+  not to a copy of the string). No library functions for string
+
+  reversal should be used. The function should also return a pointer
+
+  to the reversed string.
+
+*/
+
+Answer,
+
+#include<stdio.h>
+ 
+int string_length(char*);
+void str_rev(char*);
+ 
+int main()
+{
+   char s[100];
+ 
+   printf("Enter a string\n");
+   scanf("%s", s);
+ 
+   str_rev(s);
+ 
+   printf("Reverse of the string is \"%s\".\n", s);
+ 
+   return 0;
+}
+ 
+void str_rev(rse(char *s)
+{
+   int length, c;
+   char *begin, *end, temp;
+ 
+   length = string_length(s);
+   begin  = s;
+   end    = s;
+ 
+   for (c = 0; c < length - 1; c++)
+      end++;
+ 
+   for (c = 0; c < length/2; c++)
+   {        
+      temp   = *end;
+      *end   = *begin;
+      *begin = temp;
+ 
+      begin++;
+      end--;
+   }
+}
+ 
+int string_length(char *pointer)
+{
+   int c = 0;
+ 
+   while( *(pointer + c) != '\0' )
+      c++;
+ 
+   return c;
+}
+
+******************************
+/** Task 2: Compute mean, variance, standard deviation.
+
+
+  Write C function data_msv()that takes a pointer to a number array
+
+  and the size of the array as inputs and returns (via pointers) the
+
+  values for the arithmetic mean, population standard deviation and
+
+  variance for the input array.
+
+*/
+
+#include <stdio.h>
+ 
+#include <conio.h>
+ 
+#include <math.h>
+ 
+#define MAXSIZE 10
+
+int data_msv (float * ptr_array, int size, float * mean, float * sd, float * var)
+
+{
+
+/* Compute the sum of all elements */
+int sum 0;
+int i =0;
+int sum1=0;
+
+ 
+   for(i=0; i<size; i++)
+ 
+   {
+ 
+     sum = sum + *(ptr+i);                /* calculating the mean using the equation */
+ 
+   }
+ 
+   *mean = sum /(float) size;
+ 
+   /* Compute  variance  and standard deviation  */
+ 
+   for(i=0; i<size; i++)
+ 
+   {
+ 
+     sum1 = sum1 + pow((*(ptr+i) - avrg),2);  /* calculate the variance using general equation */
+ 
+   }
+ 
+   *var = sum1 / (float) size;
+ 
+   *sd = sqrt(var);                          /* calculating standard deviation */
+ 
+
+  return 0;
+
+}
+
+
+
+ 
+void main()
+ 
+{
+ 
+   float x[MAXSIZE];
+ 
+   int  i, n;
+ 
+   float *avrg, *var, *SD;   /* declares the variables avrg, Sd, sum as float */
+ 
+   printf("Enter the value of N\n");     /* accepts values from user */
+ 
+   scanf("%d", &n);
+ 
+   printf("Enter %d real numbers\n",n);
+ 
+   for(i=0; i<n; i++)
+ 
+   {
+ 
+     scanf("%f", &x[i]);
+ 
+   }
+   
+   int data_msv (&x,n,avg,var,SD);
+ 
+   
+   printf("Average of all elements  = %.2f\n", *avrg);
+ 
+   printf("Varience of all elements = %.2f\n", *var);
+ 
+   printf("Standard deviation       = %.2f\n", *SD);               /* prints the output mean, standard deviation, and variance */
+ 
+}  /*End of main()*/
+
+*********************************
+/** Task 3: Test for Palindrome (recursive)
+
+
+  Write C function isPalindrom() that takes as input a C string and its
+
+  size, and recursively tests whether it is a palindrome (a word or
+
+  phrase which remains the same if reversed. e.g. radar, kayak etc). The
+
+  function returns the Boolean data type which is either true or false.
+
+
+  The recursive definition of a palindrome is:
+
+    • The string is a palindrome if it has only one character or is
+
+      an empty string.
+
+    • The string is a palindrome if the first and the last characters
+
+      are the same and the characters in between form a palindrome.
+
+*/
+
+
+#include <stdio.h> 
+#include <string.h> 
+  
+// A function to check if a string str is palindrome 
+bool isPalindrome(char str[],int n) 
+{ 
+    // Start from leftmost and rightmost corners of str 
+    int l = 0; 
+    
+    // Keep comparing characters while they are same 
+    while (n > l) 
+    { 
+        if (str[l++] != str[n--]) 
+        { 
+            return false; 
+        } 
+    } 
+    return True;
+} 
+
+// Driver Code 
+int main() 
+{ 
+    char str[] = "geeg"; 
+  
+    if (isPalindrome(str),4) 
+    printf("Yes"); 
+    else
+    printf("No"); 
+  
+    return 0; 
+} 
